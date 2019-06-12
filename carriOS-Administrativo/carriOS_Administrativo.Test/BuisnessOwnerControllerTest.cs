@@ -31,5 +31,26 @@ namespace carriOS_Administrativo.Test
             var resultado = mock.Object.Save(buisnessOwner);
             Assert.IsTrue(resultado);
         }
+        public void ListarBuisnessOwner()
+        {
+            BuisnessOwnerRepositoryImpl buisnessOwnerRepository = new BuisnessOwnerRepositoryImpl();
+            var listOfBuisnessOwner = new List<BuisnessOwner>();
+            listOfBuisnessOwner.Add(new BuisnessOwner
+            {
+                FirstName = "Diego",
+                LastName = "Alosilla",
+                Email = "deigoalosilla@gmail.com",
+                Movil = "966450252",
+                Password = "1234",
+                City = "Lima",
+                Country = "Peru",
+            });
+            BuisnessOwner buisnessOwner = new BuisnessOwner();
+         
+            var mock = new Mock<BuisnessOwnerRepository>();
+            mock.SetupGet(x => x.FindAll()).Returns(listOfBuisnessOwner);
+            var resultado = mock.Object.FindAll();
+            Assert.IsNotNull(resultado);
+        }
     }
 }
