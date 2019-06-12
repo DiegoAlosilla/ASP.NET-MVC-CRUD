@@ -50,7 +50,7 @@ namespace carriOS_Administrativo.Test
             BuisnessOwner buisnessOwner = new BuisnessOwner();
          
             var mock = new Mock<BuisnessOwnerRepository>();
-            mock.SetupGet(x => x.FindAll()).Returns(listOfBuisnessOwner);
+            mock.Setup(x => x.FindAll()).Returns(listOfBuisnessOwner);
             var resultado = mock.Object.FindAll();
             Assert.IsNotNull(resultado);
         }
