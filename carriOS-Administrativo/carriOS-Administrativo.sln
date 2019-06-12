@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "carriOS-Administrativo", "carriOS-Administrativo\carriOS-Administrativo.csproj", "{6E4E39DF-8499-47A5-9AFA-61B10122CA98}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "carriOS_Administrativo.Test", "carriOS_Administrativo.Test\carriOS_Administrativo.Test.csproj", "{2EEEA6EB-1DC0-4224-ACB6-5131F331F191}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6E4E39DF-8499-47A5-9AFA-61B10122CA98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E4E39DF-8499-47A5-9AFA-61B10122CA98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E4E39DF-8499-47A5-9AFA-61B10122CA98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EEEA6EB-1DC0-4224-ACB6-5131F331F191}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EEEA6EB-1DC0-4224-ACB6-5131F331F191}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EEEA6EB-1DC0-4224-ACB6-5131F331F191}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EEEA6EB-1DC0-4224-ACB6-5131F331F191}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

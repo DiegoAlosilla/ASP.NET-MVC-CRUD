@@ -15,10 +15,11 @@ namespace carriOS_Administrativo.Controllers
 
         private BuisnessOwnerService buisnessOwnerService;
 
-        public BuisnessOwnerController(BuisnessOwnerServiceImpl bos)
+        public BuisnessOwnerController(BuisnessOwnerService bos)
         {
             buisnessOwnerService = bos;
         }
+
         public BuisnessOwnerController()
         {
             buisnessOwnerService = new BuisnessOwnerServiceImpl();
