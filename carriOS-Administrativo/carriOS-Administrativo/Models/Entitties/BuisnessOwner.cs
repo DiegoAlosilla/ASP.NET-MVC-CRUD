@@ -9,10 +9,11 @@
 
 namespace carriOS_Administrativo.Models.Entitties
 {
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Collections.Generic;
     
-    public partial class BuisnessOwner
+    public partial class BuisnessOwner:IdentityUser
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
