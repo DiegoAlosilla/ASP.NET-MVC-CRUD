@@ -13,7 +13,7 @@ namespace carriOS_Administrativo.Models.Entitties
     using System;
     using System.Collections.Generic;
     
-    public partial class BuisnessOwner:IdentityUser
+    public partial class BuisnessOwner
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
