@@ -1,4 +1,6 @@
 ﻿using carritOSCore.Model.Entities;
+using carritOSCore.Model.Repository;
+using carritOSCore.Model.RepositoryImpl;
 using carritOSCore.Model.Service;
 using System;
 using System.Collections.Generic;
@@ -9,6 +11,13 @@ namespace carritOSCore.Model.ServiceImpl
 {
     public class BuisnessOwnerServiceImpl : IBuisnessOwnerService
     {
+        private IBuisnessOwnerRepository buisnessOwnerRepository;
+
+        public BuisnessOwnerServiceImpl(ApplicationDbContext context)
+        {
+            buisnessOwnerRepository = new BuisnessOwnerRepositoryImpl(context);
+        }
+
         public bool Delete(BuisnessOwner t)
         {
             throw new NotImplementedException();
@@ -16,12 +25,12 @@ namespace carritOSCore.Model.ServiceImpl
 
         public List<BuisnessOwner> FindAll()
         {
-            throw new NotImplementedException();
+            return buisnessOwnerRepository.FindAll();
         }
 
         public BuisnessOwner FindById(int? id)
         {
-            throw new NotImplementedException();
+            return buisnessOwnerRepository.FindById(id);
         }
 
         public bool Save(BuisnessOwner t)

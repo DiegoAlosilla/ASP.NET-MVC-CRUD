@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 
 using carritOSCore.Model.Entities;
 using Microsoft.EntityFrameworkCore;
+using carritOSCore.Model.Service;
+using carritOSCore.Model.ServiceImpl;
 
 namespace carritOSCore.Controllers
 {
@@ -15,23 +17,27 @@ namespace carritOSCore.Controllers
     public class BuisnessOwnerController : Controller
     {
         private readonly ApplicationDbContext context;
+        private IBuisnessOwnerService buisnessownerService;
         public BuisnessOwnerController(ApplicationDbContext context)
         {
             this.context = context;
+            buisnessownerService = new BuisnessOwnerServiceImpl(context);
         }
 
         [HttpGet]
         public IEnumerable<BuisnessOwner> Get()
         {
-            return context.buisnessOwners.ToList();
+            var buisnessOwner = buisnessownerService.FindAll();
+            return buisnessOwner.ToList();
         }
 
         [HttpGet("{id}", Name = "create buisnessOwner")]
         public IActionResult GetById(int id)
         {
-            var buisnessOwner = context.buisnessOwners.FirstOrDefault(c => c.Id == id);
+            
+            var buisnessOwner = buisnessownerService.FindById(id);
 
-            if(buisnessOwner == null)
+            if (buisnessOwner == null)
             {
                 return NotFound();
             }
@@ -44,8 +50,7 @@ namespace carritOSCore.Controllers
         {
             if(ModelState.IsValid)
             {
-                context.buisnessOwners.Add(buisnessOwner);
-                context.SaveChanges();
+                buisnessownerService.Save(buisnessOwner);               
                 return new CreatedAtRouteResult("create buisnessOwner", new  { id = buisnessOwner.Id });
             }
             return BadRequest(ModelState);
@@ -60,8 +65,7 @@ namespace carritOSCore.Controllers
                 return BadRequest();
             }
 
-            context.Entry(buisnessOwner).State = EntityState.Modified;
-            context.SaveChanges();
+            buisnessownerService.Update(buisnessOwner);
             return Ok();
         }
 
@@ -69,16 +73,15 @@ namespace carritOSCore.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var pais = context.buisnessOwners.FirstOrDefault(x => x.Id == id);
+            var buisnessOwner = buisnessownerService.FindById(id);
 
-            if (pais == null)
+            if (buisnessOwner == null)
             {
                 return NotFound();
             }
 
-            context.buisnessOwners.Remove(pais);
-            context.SaveChanges();
-            return Ok(pais);
+            buisnessownerService.Delete(buisnessOwner);
+            return Ok(buisnessOwner);
         }
 
     }
