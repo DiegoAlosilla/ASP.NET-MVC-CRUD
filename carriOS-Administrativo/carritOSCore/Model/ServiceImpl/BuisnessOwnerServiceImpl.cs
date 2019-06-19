@@ -9,36 +9,36 @@ using System.Threading.Tasks;
 
 namespace carritOSCore.Model.ServiceImpl
 {
-    public class BuisnessOwnerServiceImpl : IBuisnessOwnerService
+    public class BusinessOwnerServiceImpl : IBusinessOwnerService
     {
-        private IBuisnessOwnerRepository buisnessOwnerRepository;
+        private IBusinessOwnerRepository BusinessOwnerRepository;
 
-        public BuisnessOwnerServiceImpl(ApplicationDbContext context)
+        public BusinessOwnerServiceImpl(ApplicationDbContext context)
         {
-            buisnessOwnerRepository = new BuisnessOwnerRepositoryImpl(context);
+            BusinessOwnerRepository = new BusinessOwnerRepositoryImpl(context);
         }
 
-        public bool Delete(BuisnessOwner t)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<BuisnessOwner> FindAll()
-        {
-            return buisnessOwnerRepository.FindAll();
-        }
-
-        public BuisnessOwner FindById(int? id)
-        {
-            return buisnessOwnerRepository.FindById(id);
-        }
-
-        public bool Save(BuisnessOwner t)
+        public bool Delete(BusinessOwner t)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(BuisnessOwner t)
+        public List<BusinessOwner> FindAll()
+        {
+            return BusinessOwnerRepository.FindAll();
+        }
+
+        public BusinessOwner FindById(int? id)
+        {
+            return BusinessOwnerRepository.FindById(id);
+        }
+
+        public bool Save(BusinessOwner t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Update(BusinessOwner t)
         {
             throw new NotImplementedException();
         }

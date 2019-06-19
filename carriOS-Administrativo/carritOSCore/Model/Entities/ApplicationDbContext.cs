@@ -13,6 +13,6 @@ namespace carritOSCore.Model.Entities
         {
         }
 
-        public DbSet<BuisnessOwner> buisnessOwners { get; set; }
+        public DbSet<BusinessOwner> businessOwners { get; set; }
     }
 }

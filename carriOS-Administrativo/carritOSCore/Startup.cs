@@ -41,11 +41,11 @@ namespace carritOSCore
 
             app.UseMvc();
 
-            if (!context.buisnessOwners.Any())
+            if (!context.businessOwners.Any())
             {
-                context.buisnessOwners.AddRange(new List<BuisnessOwner>()
+                context.businessOwners.AddRange(new List<BusinessOwner>()
                 {
-                    new BuisnessOwner()
+                    new BusinessOwner()
                     {
                         
                         FirstName = "Diego",
@@ -58,7 +58,7 @@ namespace carritOSCore
                         Country = "Peru"
                      },
 
-                      new BuisnessOwner()
+                      new BusinessOwner()
                     {
 
                         FirstName = "Giannela",
