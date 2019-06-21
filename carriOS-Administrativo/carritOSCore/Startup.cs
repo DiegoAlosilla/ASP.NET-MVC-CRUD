@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using carritOSCore.Model.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,7 +27,12 @@ namespace carritOSCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options => 
-            options.UseInMemoryDatabase("buisnessOwnerDB"));
+            options.UseSqlServer(Configuration.GetConnectionString("defaultConnections")));
+
+            services.AddIdentity<BusinessOwner, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
 
             services.AddMvc();
         }
@@ -41,38 +47,38 @@ namespace carritOSCore
 
             app.UseMvc();
 
-            if (!context.businessOwners.Any())
-            {
-                context.businessOwners.AddRange(new List<BusinessOwner>()
-                {
-                    new BusinessOwner()
-                    {
+            //if (!context.businessOwners.Any())
+            //{
+            //    context.businessOwners.AddRange(new List<BusinessOwner>()
+            //    {
+            //        new BusinessOwner()
+            //        {
                         
-                        FirstName = "Diego",
-                        LastName = "Alosilla",
-                        Dni ="12345678",
-                        Email = "deigoalosilla@gmail.com",
-                        Movil = "966450252",
-                        Password = "1234",
-                        City = "Lima",
-                        Country = "Peru"
-                     },
+            //            FirstName = "Diego",
+            //            LastName = "Alosilla",
+            //            Dni ="12345678",
+            //            Email = "deigoalosilla@gmail.com",
+            //            Movil = "966450252",
+            //            Password = "1234",
+            //            City = "Lima",
+            //            Country = "Peru"
+            //         },
 
-                      new BusinessOwner()
-                    {
+            //        new BusinessOwner()
+            //        {
 
-                        FirstName = "Giannela",
-                        LastName = "Peramas",
-                        Dni ="12345678",
-                        Email = "deigoalosilla@gmail.com",
-                        Movil = "966450252",
-                        Password = "1234",
-                        City = "Lima",
-                        Country = "Peru"
-                     }
-                }); 
-                context.SaveChanges();
-            }
+            //            FirstName = "Giannela",
+            //            LastName = "Peramas",
+            //            Dni ="12345678",
+            //            Email = "deigoalosilla@gmail.com",
+            //            Movil = "966450252",
+            //            Password = "1234",
+            //            City = "Lima",
+            //            Country = "Peru"
+            //         }
+            //    }); 
+            //    context.SaveChanges();
+            //}
 
         }
     }

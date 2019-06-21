@@ -10,6 +10,7 @@ namespace Test
         public void RegistarBuisnessOwner()
         {
             //BuisnessOwnerRepositoryImpl
+            BusinessOwner bo;
         }
     }
 }

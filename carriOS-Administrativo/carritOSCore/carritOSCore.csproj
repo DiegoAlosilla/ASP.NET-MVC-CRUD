@@ -4,8 +4,18 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+
   <ItemGroup>
-    <Folder Include="AppData\" />
+    <Compile Remove="AppData\**" />
+    <Content Remove="AppData\**" />
+    <EmbeddedResource Remove="AppData\**" />
+    <None Remove="AppData\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

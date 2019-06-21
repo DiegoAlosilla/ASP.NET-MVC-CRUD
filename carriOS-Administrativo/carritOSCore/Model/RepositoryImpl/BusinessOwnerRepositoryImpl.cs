@@ -33,12 +33,12 @@ namespace carritOSCore.Model.RepositoryImpl
 
         public List<BusinessOwner> FindAll()
         {
-            return context.businessOwners.ToList();
+            return context.BusinessOwners.ToList();
         }
 
         public BusinessOwner FindById(int? id)
         {
-            return context.businessOwners
+            return context.BusinessOwners
               .Find(id);
         }
 
